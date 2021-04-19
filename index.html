@@ -9,12 +9,14 @@
 	<script src="https://d3js.org/d3-hierarchy.v2.min.js"></script>
     <script src="/node_modules/d3/dist/d3.min.js"></script>
     <link rel="stylesheet" href="style.css">
+    <script src="d3.legend.js"></script>
 </head>
 
+<body>
 <div class="grid-container">
 
     <header class="header">
-        <div class="title"> ENERGY DISAGGREGATION </div>
+        <div class="title"> Energy Disaggregation </div>
         <div class="team"> The PythonPuff Girls </div>
     </header>
 
@@ -26,47 +28,47 @@
                    <div class="overviewcard mains">
                     <img src="./dashboard_data/homeicon.png" width=40px height=40px>
                    <div>
-                        <div class="overviewcard__info avg mains_">4</div>
+                        <div class="overviewcard__info avg mains_" id="mainsavg"></div>
                         <div class="overviewcard__icon mains_">Mains Average</div>
                     </div>
                   </div>
                   <div class="overviewcard mains">
                     <img src="./dashboard_data/homeicon.png" width=40px height=40px>
                     <div>
-                        <div class="overviewcard__info peak mains_">13</div>
+                        <div class="overviewcard__info peak mains_" id="mainsmax"></div>
                         <div class="overviewcard__icon mains_">Mains Peak</div>
                     </div>
                     </div>
                 </div>
-            </div>
+            </div> 
             <div class="card">       
                  <div class="main-overview">
                 <div class="overviewcard microwave">
                   <img src="./dashboard_data/microwaveicon.png" width=40px height=40px>
                   <div>
-                    <div class="overviewcard__info avg">4</div>
+                    <div class="overviewcard__info avg" id="micavg"></div>
                     <div class="overviewcard__icon">Microwave Average</div>
                   </div>
                 </div>
                 <div class="overviewcard microwave">
                     <img src="./dashboard_data/microwaveicon.png" width=40px height=40px>
                     <div>
-                      <div class="overviewcard__info peak">13</div>
+                      <div class="overviewcard__info peak" id="micmax"></div>
                       <div class="overviewcard__icon">Microwave Peak</div>
                     </div>
                 </div>
                 <div class="overviewcard dishwasher">
                     <img src="./dashboard_data/dishwashericon.svg" width=40px height=40px>
                     <div>
-                      <div class="overviewcard__info avg">4</div>
+                      <div class="overviewcard__info avg" id="dishavg"></div>
                       <div class="overviewcard__icon">Dishwasher Average</div>
                     </div>
                 </div>
                 <div class="overviewcard dishwasher">
                     <img src="./dashboard_data/dishwashericon.svg" width=40px height=40px>
                     <div>
-                      <div class="overviewcard__info peak">21</div>
-                      <div class="overviewcard__icon">Dishwasher Average</div>
+                      <div class="overviewcard__info peak" id="dishmax"></div>
+                      <div class="overviewcard__icon">Dishwasher Peak</div>
                     </div>
                 </div>
               </div>
@@ -74,8 +76,8 @@
           </div>
 
           <div class="main-charts">
-            <div class="chart">Really cool line chart!</div>
-            <div class="chart">Really cool pie chart!</div>
+            <div class="chart"><svg id="linechart"></svg></div>
+            <div class="chart"><svg id="piechart"></svg></div>
           </div>
 
     </main>
@@ -85,4 +87,7 @@
         <div class="footer__signature"> the best DSCI 560 group</div>
     </footer>
 
+    <script src="dataviz.js"></script>
+
 </div>
+</body>
