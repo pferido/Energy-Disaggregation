@@ -1,5 +1,5 @@
-from redd_parameters_house456train import *
-import redd_parameters_house456train
+from redd_parameters_kitchenoutletstove import *
+import redd_parameters_kitchenoutletstove
 import pandas as pd
 import matplotlib.pyplot as plt
 import time
@@ -9,7 +9,7 @@ import numpy as np
 
 
 DATA_DIRECTORY = '../../../rawdata/REDD'
-SAVE_PATH = '../../../trainingdata/train_houses456/'
+SAVE_PATH = '../../../trainingdata/train_kitchenoutlet_stove/'
 AGG_MEAN = 522
 AGG_STD = 814
 def get_arguments():
