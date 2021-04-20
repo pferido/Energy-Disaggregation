@@ -1,6 +1,5 @@
-d3.csv("dashboard_data/dishwasher_test_results.csv").then(data=>{
+d3.csv("dashboard_data/microwave_results.csv").then(data=>{
     console.log(data);
-
 
     var mainsmax=d3.max(data, d=>+d.mains);
     var mainsavg=d3.mean(data, d=>+d.mains);
@@ -116,7 +115,7 @@ d3.csv("dashboard_data/dishwasher_test_results.csv").then(data=>{
     var piedata=[
         {"label":"microwave","value":micpie},
         {"label":"dishwasher","value":dishpie},
-        {"label":"rest","value":restpie}
+        {"label":"other","value":restpie}
     ];
 
     console.log(piedata);
@@ -131,7 +130,7 @@ d3.csv("dashboard_data/dishwasher_test_results.csv").then(data=>{
 
     // set the color scale
     var color = d3.scaleOrdinal()
-    .domain(['microwave','dishwasher','rest'])
+    .domain(['microwave','dishwasher','other'])
     .range(["#CD5C5C", "#00BFFF", "dimgray"]);
 
     var pie=d3.pie()

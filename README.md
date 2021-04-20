@@ -4,4 +4,4 @@
 To open dashboard on local server:
 - clone repository and open folder in VS code
 - run npm install
-- run npm serve
+- run npm run serve
