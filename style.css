@@ -21,6 +21,7 @@ body{
   
   .main {
     grid-area: main;
+    background-image: url('./dashboard_data/plant-background.jpg');
   }
   
   .footer {
@@ -33,12 +34,18 @@ body{
       justify-content: space-between;
       padding: 0 15px;
       color: #DCDCDC;
-      /*background-image: url('./dashboard_data/network-background.jpg');*/
+      background-image: url('./dashboard_data/plant-background.jpg');
   }
   
   .title {
       font-weight:bolder;
       font-size: 30px;
+  }
+
+  .charttitle {
+    stroke: gainsboro;
+    stroke-width: 0px;
+    fill: gainsboro;
   }
 
   .main-overview {
@@ -67,18 +74,18 @@ body{
     align-items: center;
     justify-content: space-between;
     padding: 50px;
-    background-color: #2d284c;
+    background-color: #182f27;
     text-align: center;
     font-weight: bolder;
   }
 
   .microwave {
-      background-color: #2d284c;
+      background-color: #182f27;
       color: #CD5C5C;
   }
 
   .dishwasher {
-      background-color: #2d284c;
+      background-color: #182f27;
       color:#00BFFF;
   }
 
@@ -141,11 +148,11 @@ body{
   }
   
   .chart {
-    display: flex;
+    /*display: flex;*/
     flex-direction: column;
     align-items: center;
     width: 100%;
-    background-color:#2d284c; /* #DCDCDC;*/
+    background-color:#182f27; /* #DCDCDC;*/
    margin-bottom: 20px;
     -webkit-column-break-inside: avoid;
     padding: 24px;
@@ -187,5 +194,12 @@ body{
 
   .xaxis,.yaxis {
     color: gainsboro;
+  }
+
+  .legend {
+    color: gainsboro;
+    stroke: gainsboro;
+    stroke-width: 0px;
+    fill: gainsboro;
   }
 

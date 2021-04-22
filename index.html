@@ -13,6 +13,7 @@
 </head>
 
 <body>
+\
 <div class="grid-container">
 
     <header class="header">
@@ -75,8 +76,12 @@
             </div>
           </div>
 
+
           <div class="main-charts">
-            <div class="chart"><svg id="linechart"></svg></div>
+            <div class="chart">
+              <svg id="linechart"></svg>
+              <div id='tooltip' style='position:absolute;background-color:lightgray;padding:5px'></div>
+            </div>
             <div class="chart"><svg id="piechart"></svg></div>
           </div>
 
@@ -87,6 +92,7 @@
         <div class="footer__signature"> the best DSCI 560 group</div>
     </footer>
 
+          
     <script src="dataviz.js"></script>
 
 </div>

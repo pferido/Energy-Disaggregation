@@ -14,6 +14,7 @@ d3.csv("dashboard_data/microwave_results.csv").then(data=>{
     
     var format=d3.format(",.2f");
     var peakformat=d3.format(",.0f");
+    var intformat=d3.format(".0f");
 
     d3.select("#dishavg")
         .text(format(dishavg));
@@ -37,6 +38,11 @@ d3.csv("dashboard_data/microwave_results.csv").then(data=>{
     var margin ={ top: 10, left: 40, bottom: 20, right: 10};
     var width=parseInt(d3.select("#linechart").style("width"))-margin.left-margin.right;
     var height=parseInt(d3.select("#linechart").style("height"))-margin.top-margin.bottom;
+
+    // set the color scale
+    var color = d3.scaleOrdinal()
+    .domain(['microwave','dishwasher','other','mains'])
+    .range(["#CD5C5C", "#00BFFF", "dimgray",'dimgray']);
 
     var svg=d3.select("#linechart")
             .attr('width',width+margin.left+margin.right)
@@ -73,6 +79,33 @@ d3.csv("dashboard_data/microwave_results.csv").then(data=>{
         .style('color','gainsboro')
         .call(yAxis);
 
+    svg.append("text")
+        .attr("x", (width / 2))             
+        .attr("y", 0 - ((margin.top-20) / 2))
+        .attr('class','charttitle')
+        .attr("text-anchor", "middle")  
+        .style("font-size", "18px") 
+        .style('font-family','Arial Narrow')
+        .text("Mains Readings and Predicions for 4/18/2011-5/24/2011")
+        .style('color','gainsboro');
+    
+    tipBox = svg.append('rect')
+        .attr('width',width)
+        .attr('height',height)
+        .attr('opacity',0)
+        .on('mousemove',drawTooltip);
+
+    var tooltip=d3.select('#tooltip');
+    var tooltipLine=svg.append('line')
+
+    // Handmade legend
+    svg.append("circle").attr("cx",width-70).attr("cy",30).attr("r", 6).style("fill", "dimgrey")
+    svg.append("circle").attr("cx",width-70).attr("cy",60).attr("r", 6).style("fill", "#CD5C5C")
+    svg.append("circle").attr("cx",width-70).attr("cy",90).attr("r", 6).style("fill", "#00BFFF")
+    svg.append("text").attr("x", width-60).attr('class','legend').attr("y", 30).text("Mains").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", width-60).attr('class','legend').attr("y", 60).text("Micorwave").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", width-60).attr('class','legend').attr("y", 90).text("Dishwasher").style("font-size", "15px").attr("alignment-baseline","middle")
+
     // Map columns
     var slices = data.columns.slice(1).map(function(id){
         return {
@@ -95,13 +128,39 @@ d3.csv("dashboard_data/microwave_results.csv").then(data=>{
     var lines=svg.selectAll("lines")
         .data(slices)
         .enter()
-        .append("g")
-        .attr('clsss','line');
+        .append("g");
 
     lines
         .append('path')
-        .attr('class',function(d){return(d.id)})
+        .attr('class',function(d){return('line ' + d.id)})
         .attr('d',d=>line(d.values));
+
+    // Mouseover
+    function removeTooltip() {
+        if (tooltip) tooltip.style('display','none');
+        if (tooltipLine) tooltipLine.attr('stroke','none');
+    }
+
+    function drawTooltip() {
+        var x=xScale.invert(d3.pointer(event)[0]);
+        var y=yScale.invert(d3.pointer(event)[1]);
+
+        tooltipLine.attr('stroke','gainsboro')
+            .attr('x1',xScale(x))
+            .attr('x2',xScale(x))
+            .attr('y1',0)
+            .attr('y2',height);
+
+        tooltip.html('Readings')
+            .style('display', 'block')
+            .attr('transform','translate(0,0')
+            .selectAll()
+            .data(slices).enter()
+            .append('div')
+            .style('color', function(d){return color(d.id)})
+            .html(d => d.id + ': ' + format(d.values.find(d=>d.time==intformat(x)).hz))
+
+    }
 
     /*************** PIE CHART ***************/
     //Create the values for the pie chart
@@ -127,11 +186,6 @@ d3.csv("dashboard_data/microwave_results.csv").then(data=>{
     .attr('height',height)
     .append('g')
     .attr('transform','translate('+width/2+","+height/2+")");
-
-    // set the color scale
-    var color = d3.scaleOrdinal()
-    .domain(['microwave','dishwasher','other'])
-    .range(["#CD5C5C", "#00BFFF", "dimgray"]);
 
     var pie=d3.pie()
         .value(function(d){return d.value;})
@@ -167,7 +221,7 @@ d3.csv("dashboard_data/microwave_results.csv").then(data=>{
         })
         .attr('text-anchor','middle')
         .text(function(d,i) {return piedata[i].label})
-        .attr('stroke','gainsboro')
+        .attr('stroke-width','0px')
         .attr('fill','gainsboro')
         .attr('font-size','15px')
 
