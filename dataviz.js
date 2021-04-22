@@ -103,7 +103,7 @@ d3.csv("dashboard_data/microwave_results.csv").then(data=>{
     svg.append("circle").attr("cx",width-70).attr("cy",60).attr("r", 6).style("fill", "#CD5C5C")
     svg.append("circle").attr("cx",width-70).attr("cy",90).attr("r", 6).style("fill", "#00BFFF")
     svg.append("text").attr("x", width-60).attr('class','legend').attr("y", 30).text("Mains").style("font-size", "15px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", width-60).attr('class','legend').attr("y", 60).text("Micorwave").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", width-60).attr('class','legend').attr("y", 60).text("Microwave").style("font-size", "15px").attr("alignment-baseline","middle")
     svg.append("text").attr("x", width-60).attr('class','legend').attr("y", 90).text("Dishwasher").style("font-size", "15px").attr("alignment-baseline","middle")
 
     // Map columns
