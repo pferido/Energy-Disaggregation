@@ -15,6 +15,7 @@ d3.csv("dashboard_data/microwave_results.csv").then(data=>{
     var format=d3.format(",.2f");
     var peakformat=d3.format(",.0f");
     var intformat=d3.format(".0f");
+    var pctformat=d3.format(".2%")
 
     d3.select("#dishavg")
         .text(format(dishavg));
@@ -198,6 +199,10 @@ d3.csv("dashboard_data/microwave_results.csv").then(data=>{
         .innerRadius(0)
         .outerRadius(radius*2.25);
 
+    var pietextarc=d3.arc()
+        .innerRadius(0)
+        .outerRadius(radius*1.75)
+
     console.log(pie(piedata));
 
     var arcs=svgpie.selectAll('pie')
@@ -225,5 +230,17 @@ d3.csv("dashboard_data/microwave_results.csv").then(data=>{
         .attr('fill','gainsboro')
         .attr('font-size','15px')
 
+    var pietext=arcs.append('text')
+        .attr('transform',function(d){
+            d.innerRadius=1.5;
+            d.outerRadius=radius*1.5;
+            return "translate("+pietextarc.centroid(d)+")";
+        })
+        .attr('text-anchor','middle')
+        .text(function(d,i) {return pctformat(piedata[i].value/ck)})
+        .attr('fill','black')
+        .attr('font-size','13px')
+        .attr('stroke','black')
+        .attr('stroke-width','0.5px')
 
 })
