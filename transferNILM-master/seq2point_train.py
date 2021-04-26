@@ -37,6 +37,7 @@ import numpy as np
 import pandas as pd
 import argparse
 from Arguments import *
+import tensorflow.compat.v1 as tfc
 
 def remove_space(string):
     return string.replace(" ","")
@@ -134,7 +135,7 @@ log(args)
 CHUNK_SIZE = 5*10**6
 
 # start the session for training a network
-sess = tf.InteractiveSession()
+sess = tfc.InteractiveSession()
 
 # the appliance to train on
 appliance_name = args.appliance_name

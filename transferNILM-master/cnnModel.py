@@ -1,14 +1,17 @@
 from Arguments import *
 from Logger import log
+from tensorflow import keras
 from keras.models import Model
 from keras.layers import Dense, Conv2D, Flatten, Reshape
-from keras.utils import print_summary, plot_model
+from keras.utils import plot_model
 import numpy as np
 import keras.backend as K
+from tensorflow.python.keras.backend import get_session
 import os
 import tensorflow as tf
 import h5py
 import argparse
+from keras.utils import np_utils
 
 
 def get_model(appliance, input_tensor, window_length, transfer_dense=False, transfer_cnn=False,
@@ -69,8 +72,10 @@ def get_model(appliance, input_tensor, window_length, transfer_dense=False, tran
     d_out = Dense(1, activation='linear', name='output')(label)
 
     model = Model(inputs=input_tensor, outputs=d_out)
+    #session = get_session()
 
-    session = K.get_session()
+    #session = tfc.compat.v1.keras.backend.get_session()
+    
 
     if transfer_dense:
         log("Transfer learning...")
@@ -85,7 +90,7 @@ def get_model(appliance, input_tensor, window_length, transfer_dense=False, tran
         for idx, layer1 in enumerate(model_def.layers):
             if hasattr(layer1, 'kernel_initializer') and 'conv2d' not in layer1.name and 'cnn' not in layer1.name:
                 log('Re-initialize: {}'.format(layer1.name))
-                layer1.kernel.initializer.run(session=session)
+                layer1.kernel.initializer.run()  #layer1.kernel.initializer.run(session=session)
 
     elif not transfer_dense and not transfer_cnn:
         log("Standard training...")
@@ -95,7 +100,8 @@ def get_model(appliance, input_tensor, window_length, transfer_dense=False, tran
         raise argparse.ArgumentTypeError('Model selection error.')
 
     # Printing, logging and plotting the model
-    print_summary(model_def)
+    np.utils.print_summary(model_def)
+    #print_summary(model_def)
     # plot_model(model, to_file='./model.png', show_shapes=True, show_layer_names=True, rankdir='TB')
 
     # Adding network structure to both the log file and output terminal

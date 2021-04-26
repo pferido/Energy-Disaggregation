@@ -5,10 +5,10 @@ import matplotlib.pyplot as plt
 import time
 import argparse
 import os
+import pdb
 
-
-DATA_DIRECTORY = '../../rawdata/REDD'
-SAVE_PATH = '../../trainingdata/redd_kettle'
+DATA_DIRECTORY = '../../../rawdata/REDD'
+SAVE_PATH = '../../../trainingdata/redd_kettle'
 AGG_MEAN = 522
 AGG_STD = 814
 def get_arguments():
@@ -16,7 +16,7 @@ def get_arguments():
                                      example for NILM')
     parser.add_argument('--data_dir', type=str, default=DATA_DIRECTORY,
                           help='The directory containing the REDD data')
-    parser.add_argument('--appliance_name', type=str, default='kettle',
+    parser.add_argument('--appliance_name', type=str, default='dishwasher',
                           help='which appliance you want to train: kettle,\
                           microwave,fridge,dishwasher,washingmachine')
     parser.add_argument('--aggregate_mean',type=int,default=AGG_MEAN,
@@ -44,6 +44,7 @@ def main():
     appliance_name = args.appliance_name
     print('\n' + appliance_name)
     train = pd.DataFrame(columns=['aggregate', appliance_name])
+    params_appliance = redd_parameters.params_appliance
 
     for h in params_appliance[appliance_name]['houses']:
         print('    ' + args.data_dir + 'house_' + str(h) + '/'
@@ -80,7 +81,7 @@ def main():
                                    )
 
 
-
+        pdb.set_trace()
 
         mains1_df['time'] = pd.to_datetime(mains1_df['time'], unit='s')
         mains2_df['time'] = pd.to_datetime(mains2_df['time'], unit='s')
