@@ -25,7 +25,11 @@ J. Zico Kolter and Matthew J. Johnson.  REDD: A public data set for energy disag
 
 ## Seq2Point
 
+Reference Paper: Zhang, C., Zhong, M., Wang, Z., Goddard, N., & Sutton, C. (2018, April). Sequence-to-point learning with neural networks for non-intrusive load monitoring. In Proceedings of the AAAI Conference on Artificial Intelligence (Vol. 32, No. 1).
+https://github.com/MingjunZhong/seq2point-nilm
+
 **Data Preprocessing**
+
 Resampling the data and align the mains and appliance readings to 1/8 Hz (aggregation method used: mean), backfilling of missing values, mean normalization of data. 
 The folder “Energy-Disaggregation/transferNILM-master/dataset_management/redd/” has the code for data preprocessing done for the seq2point model. The main program to run is ‘create_trainset_redd.py’ with arguments for appliance (appliance_name), data directory (data_dir), aggregate mean and std (aggregate_mean, aggregate_std) and save directory (save_path). Default parameters can be found in ‘redd_parameters.py’ and relied upon by the above program. By default, the program will use houses 2 and 3 for training and allows for training of dishwasher, microwave, fridge, and washing machine. Additional python scripts have been included that create training data for additional houses and for kitchen outlets and stove. These have been named accordingly with descriptive suffixes.
 
@@ -79,6 +83,8 @@ Sample test set in the folder “mains_data” is for house 1 in REDD data.
 Output: time, mains data, predicted microwave, predicted dishwasher as csv
 
 ## Window GRU:
+
+Reference Paper: Odysseas Krystalakos, Christoforos Nalmpantis, Dimitris Vrakas. 2018. Sliding Window Approach for Online Energy Disaggregation Using Artificial Neural Networks
 
 **Data Preprocessing:**
 Combined the main1 and main2 readings in the REDD dataset,
