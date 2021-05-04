@@ -2,10 +2,10 @@
 ## The Pythonpuff Girls
 
 ## Members:
-Patricia Ferido
-Shalini Mustala
-Monal Patil
-Yiming Wang
+<br>Patricia Ferido
+<br>Shalini Mustala
+<br>Monal Patil
+<br>Yiming Wang
 
 ## Introduction:
 
