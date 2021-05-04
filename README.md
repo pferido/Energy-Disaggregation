@@ -1,15 +1,13 @@
-# DSCI 560 - Energy Disaggregation Project
+# DSCI 560 - Machine Learning Models for Energy Disaggregation
 ## The Pythonpuff Girls
 
-# Machine Learning Models for Energy Disaggregation
-
-# Members:
+## Members:
 Patricia Ferido
 Shalini Mustala
 Monal Patil
 Yiming Wang
 
-# Introduction:
+## Introduction:
 
 The objective of this project is to build two machine learning models for separating total electric energy usage of two appliances from the aggregate house energy consumption data. We trained and tested both models on low rate sampling data, discussed strengths and weaknesses, and compared the results with the industry benchmark (Factorial Hidden Markov Model). Finally, we built a dashboard that enables energy companies to visualize the disaggregated appliance energy consumption. 
 
@@ -25,7 +23,7 @@ The data used for this project is from the REDD dataset. Please find the raw dat
 For an overview of the data collection procedures and a description of algorithms see:
 J. Zico Kolter and Matthew J. Johnson.  REDD: A public data set for energy disaggregation research.  In proceedings of the SustKDD workshop on Data Mining Applications in Sustainability, 2011
 
-# Seq2Point
+## Seq2Point
 
 **Data Preprocessing**
 Resampling the data and align the mains and appliance readings to 1/8 Hz (aggregation method used: mean), backfilling of missing values, mean normalization of data. 
@@ -80,7 +78,7 @@ Input_window_length: 11 for microwave, 199 for dishwasher (already plugged into 
 Sample test set in the folder “mains_data” is for house 1 in REDD data.  
 Output: time, mains data, predicted microwave, predicted dishwasher as csv
 
-# Window GRU:
+## Window GRU:
 
 **Data Preprocessing:**
 Combined the main1 and main2 readings in the REDD dataset,
