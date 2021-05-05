@@ -12,9 +12,9 @@
 The objective of this project is to build two machine learning models for separating total electric energy usage of two appliances from the aggregate house energy consumption data. We trained and tested both models on low rate sampling data, discussed strengths and weaknesses, and compared the results with the industry benchmark (Factorial Hidden Markov Model). Finally, we built a dashboard that enables energy companies to visualize the disaggregated appliance energy consumption. 
 
 The machine learning models used this work are:
-<br>Seq-to-point CNN
-<br>Window GRU
-<br>Factorial Hidden Markov Model (As a baseline)
+Seq-to-point CNN
+Window GRU
+Factorial Hidden Markov Model (As a baseline)
 
 ## Data Gathering:
 The data used for this project is from the REDD dataset. Please find the raw data at http://redd.csail.mit.edu. The data contains power consumption from real homes, for the whole house as well as for each individual circuit in the house (labeled by the main type of appliance on that circuit). A detailed description about the dataset can be found at http://redd.csail.mit.edu/readme.txt. 
