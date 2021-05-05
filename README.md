@@ -42,13 +42,12 @@ The folder “**Tuning_Notebooks**” has notebooks for hyperparameter tuning fo
 A common notebook named "Seq2point_tuning-Common" can be used as a common notebook to tune on any appliance with any training data. 
 
 Parameters tuned: Batch size, window length, window offset, epochs and learning rate
-<br>Best Model for Microwave: 
-<br>Train on House 2 & 3, Test on House 1
-<br>Window Size: 11;  Epochs: 2; Batch Size: 1000
-<br>Best Model for Dishwasher: 
-<br>Train on House 2 & 3, Test on House 1
-<br>Window Size: 199; Epochs: 5;  Batch Size: 500
-
+Best Model for Microwave: 
+Train on House 2 & 3, Test on House 1
+Window Size: 11;  Epochs: 2; Batch Size: 1000
+Best Model for Dishwasher: 
+Train on House 2 & 3, Test on House 1
+Window Size: 199; Epochs: 5;  Batch Size: 500
 ML library: keras
 Estimated efforts to tune hyperparameters on new appliances: 7.5-9 hours on Google Colab Tesla T4 GPU 
 
@@ -57,10 +56,10 @@ Estimated efforts to tune hyperparameters on new appliances: 7.5-9 hours on Goog
 The folder “**Training_Notebooks**” has notebooks for training and testing of appliances we trained on: Dishwasher, microwave, stove and kitchen outlet.
 A common notebook named "Seq2point-Common" can be used as a common notebook to train and test on any appliance with any training data.
 
-<br>Training: House 2 and 3
-<br>Validation: 10% of the training data
-<br>Testing: House 1
-<br>Training time for each appliance: around 10 minutes (Google Colab Nvidia Tesla T4 GPU) 
+Training: House 2 and 3
+Validation: 10% of the training data
+Testing: House 1
+Training time for each appliance: around 10 minutes (Google Colab Nvidia Tesla T4 GPU) 
 
 
 **Pretrained models:**
@@ -100,14 +99,14 @@ Data preprocessing is done during the training and testing phase itself.
 The folder “**Training_Notebooks**” has notebooks for hyperparameter tuning,  training and testing of appliances we tuned on: Dishwasher, microwave, stove and kitchen outlet.
 
 Parameters tuned: Batch size, window length, window offset, epochs and learning rate
-<br>Best Model for Microwave: 
-<br>Train on House 2 & 3, Test on House 1
-<br>Window Size: 10;  Epochs: 20; Batch Size: 128
-<br>Best Model for Dishwasher: 
-<br>Train on House 2 & 3, Test on House 1
-<br>Window Size: 50; Epochs: 15;  Batch Size: 512
-<br>ML library: keras
-<br>Estimated efforts to tune hyperparameters on new appliances: 7-8  hours on Google Colab Tesla T4 GPU
+Best Model for Microwave: 
+Train on House 2 & 3, Test on House 1
+Window Size: 10;  Epochs: 20; Batch Size: 128
+Best Model for Dishwasher: 
+Train on House 2 & 3, Test on House 1
+Window Size: 50; Epochs: 15;  Batch Size: 512
+ML library: keras
+Estimated efforts to tune hyperparameters on new appliances: 7-8  hours on Google Colab Tesla T4 GPU
 
 **Pretrained model :**
 
