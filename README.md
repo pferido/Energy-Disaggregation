@@ -31,7 +31,7 @@ https://github.com/MingjunZhong/seq2point-nilm
 **Data Preprocessing**
 
 Resampling the data and align the mains and appliance readings to 1/8 Hz (aggregation method used: mean), backfilling of missing values, mean normalization of data. 
-The folder “Energy-Disaggregation/transferNILM-master/dataset_management/redd/” has the code for data preprocessing done for the seq2point model. The main program to run is ‘create_trainset_redd.py’ with arguments for appliance (appliance_name), data directory (data_dir), aggregate mean and std (aggregate_mean, aggregate_std) and save directory (save_path). Default parameters can be found in ‘redd_parameters.py’ and relied upon by the above program. By default, the program will use houses 2 and 3 for training and allows for training of dishwasher, microwave, fridge, and washing machine. Additional python scripts have been included that create training data for additional houses and for kitchen outlets and stove. These have been named accordingly with descriptive suffixes.
+The folder “Preprocessing_Notebooks” has the code for data preprocessing done for the seq2point model. The main program to run is ‘create_trainset_redd.py’ with arguments for appliance (appliance_name), data directory (data_dir), aggregate mean and std (aggregate_mean, aggregate_std) and save directory (save_path). Default parameters can be found in ‘redd_parameters.py’ and are relied upon by the above program. By default, the program will use houses 2 and 3 for training and allows for training of dishwasher, microwave, fridge, and washing machine. Additional python scripts have been included that create training data for additional houses and for kitchen outlets and stove. These have been named accordingly with descriptive suffixes.
 
 The preprocessed data can be found in the folder “**training data**” 
 
@@ -86,6 +86,9 @@ Output: time, mains data, predicted microwave, predicted dishwasher as csv
 ## Window GRU:
 
 Reference Paper: Odysseas Krystalakos, Christoforos Nalmpantis, Dimitris Vrakas. 2018. Sliding Window Approach for Online Energy Disaggregation Using Artificial Neural Networks
+
+<br>Data preparation : https://github.com/minhup/Energy-Disaggregation/blob/master/energy_disaggregation.ipynb
+<br>WindowGRU model: https://github.com/OdysseasKr/neural-disaggregator/tree/master/WindowGRU
 
 **Data Preprocessing:**
 Combined the main1 and main2 readings in the REDD dataset,
