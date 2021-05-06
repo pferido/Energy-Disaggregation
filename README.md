@@ -102,7 +102,7 @@ Data preprocessing is done during the training and testing phase itself.
 
 The folder “**Training_Notebooks**” has notebooks for hyperparameter tuning,  training and testing of appliances we tuned on: Dishwasher, microwave, stove and kitchen outlet.
 
-Parameters tuned: Batch size, window length, window offset, epochs and learning rate
+Parameters tuned: Batch size, window length and epochs
 <br>Best Model for Microwave: 
 <br>Train on House 2 & 3, Test on House 1
 <br>Window Size: 10;  Epochs: 20; Batch Size: 128
@@ -123,7 +123,7 @@ Microwave: 10.6084/m9.figshare.14531607
 **Dashboard:**
 The folder  “**WebApp**” folder contains Dashboard code 
 
-**How to run the dashboard?** 
+**How to run the code for dashboard?** 
 Open the terminal
 Navigate to the WebApp folder
  Execute flask run 
